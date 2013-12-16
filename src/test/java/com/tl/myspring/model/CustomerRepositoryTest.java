@@ -5,6 +5,8 @@ import static org.junit.Assert.assertEquals;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
@@ -18,22 +20,39 @@ import com.tl.myspring.ApplicationConfigration;
 @RunWith(SpringJUnit4ClassRunner.class)
 @Transactional
 public class CustomerRepositoryTest {
+	
+	public Logger logger = LoggerFactory.getLogger(CustomerRepositoryTest.class);
 
 	@Autowired
 	CustomerRepository customerRepository;
+	@Autowired
+	BookRepository bookRepository;
 	
 	@Before
     public void setUp() {
 		customerRepository.deleteAll();
 		for (int i = 1; i <= 20; i++) {
 			Customer c = new Customer("firstName"+i, "lastName" +i);
-			System.out.println(c);
+			logger.info(c.toString());
 			customerRepository.save(c);
 		}
+//		customerRepository.
+		bookRepository.deleteAll();
+		
+		Book book = new Book("Spring", new Author("Tom", "Tang"));
+		bookRepository.save(book);
+		
 	}
 	
 	@Test
     public void testCount() {
+		logger.info("%%%%%%%%%%%%%");
 		assertEquals(20,customerRepository.count());
+		assertEquals(1,bookRepository.count());
+		logger.info(bookRepository.findAll().toString());
 	}
+	
+//	public void testBook() {
+//		assertEquals("Tom", bookRepository.findOne(1l).getAuthor().getFirstName());
+//	}
 }

@@ -7,6 +7,9 @@ import org.springframework.context.ApplicationListener;
 import org.springframework.context.event.ContextRefreshedEvent;
 import org.springframework.stereotype.Component;
 
+import com.tl.myspring.model.Author;
+import com.tl.myspring.model.Book;
+import com.tl.myspring.model.BookRepository;
 import com.tl.myspring.model.Customer;
 import com.tl.myspring.model.CustomerRepository;
 
@@ -14,13 +17,13 @@ import com.tl.myspring.model.CustomerRepository;
 public class InitData implements ApplicationListener<ContextRefreshedEvent> {
 	@Autowired
 	CustomerRepository repository;
-//	@Autowired
-//	BookRepository bookRepository;
+	@Autowired
+	BookRepository bookRepository;
 
 	  @Override
 	  public void onApplicationEvent(final ContextRefreshedEvent event) {
 
-//		  bookRepository.save(new Book("Angular JS", new Author("Tom", "Tang")));
+		  bookRepository.save(new Book("Angular JS", new Author("Tom", "Tang")));
 		  
 			// save a couple of customers
 	        repository.save(new Customer("Tom", "Bauer"));

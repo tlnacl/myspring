@@ -15,7 +15,7 @@ public class Book {
     @GeneratedValue(strategy=GenerationType.AUTO)
     private long id;
   private String title;
-  @ManyToOne
+  @ManyToOne(cascade = CascadeType.ALL)
   private Author author;
 
   public Book() {
