@@ -14,10 +14,14 @@ import com.tl.myspring.model.CustomerRepository;
 public class InitData implements ApplicationListener<ContextRefreshedEvent> {
 	@Autowired
 	CustomerRepository repository;
+//	@Autowired
+//	BookRepository bookRepository;
 
 	  @Override
 	  public void onApplicationEvent(final ContextRefreshedEvent event) {
 
+//		  bookRepository.save(new Book("Angular JS", new Author("Tom", "Tang")));
+		  
 			// save a couple of customers
 	        repository.save(new Customer("Tom", "Bauer"));
 	        repository.save(new Customer("Chloe", "O'Brian"));
