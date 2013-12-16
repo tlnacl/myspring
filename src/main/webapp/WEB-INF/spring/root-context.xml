@@ -10,18 +10,5 @@
 	>
 
 	<!-- Root Context: defines shared resources visible to all other web components -->
-	<jdbc:embedded-database type="H2" id="dataSource">
-	</jdbc:embedded-database>
-	<bean id="entityManagerFactory"
-		class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean"
-		p:dataSource-ref="dataSource" p:packagesToScan="com.tl.myspring.model">
-		<property name="jpaVendorAdapter">
-			<bean id="jpaAdapter"
-				class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter"
-				p:generateDdl="true" p:showSql="true" p:database="H2" />
-		</property>
-	</bean>
-	<bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager"
-    p:entityManagerFactory-ref="entityManagerFactory" />
-	<tx:annotation-driven />
+	
 </beans>
