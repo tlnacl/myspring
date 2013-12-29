@@ -9,12 +9,14 @@
             <tr>
                 <th>ID</th>
                 <th>TITLE</th>
+                <th>AUTHOR</th>
                 <th>&nbsp;</th>
             </tr>
             <c:forEach items="${page.content}" var="book">
                 <tr>
                     <td>${f:h(book.id)}</td>
                     <td>${f:h(book.title)}</td>
+                    <td>${f:h(book.author)}</td>
                     <td><a
                         href='${pageContext.request.contextPath}/book/edit/${book.id}'
                         class="btn btn-primary">Edit</a> <a

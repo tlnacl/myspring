@@ -8,6 +8,11 @@ import javax.persistence.Id;
 @Entity
 public class Author {
 
+	@Override
+	public String toString() {
+		return firstName + "  " + lastName;
+	}
+
 	@Id
     @GeneratedValue(strategy=GenerationType.AUTO)
     private long id;

@@ -22,6 +22,16 @@
                             element="span" />
                     </div>
                 </div>
+                <div class="control-group">
+                    <label class="control-label" for="author">author</label>
+                    <div class="controls">
+                        <form:input path="author" cssClass="span3"
+                            cssErrorClass="error" />
+                        <form:errors path="author"
+                            cssClass="error help-inline inline"
+                            element="span" />
+                    </div>
+                </div>
                 <form:hidden path="id" />
                 <div class="form-actions">
                     <input type="submit" class="btn btn-primary"
