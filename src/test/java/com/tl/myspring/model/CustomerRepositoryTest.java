@@ -52,6 +52,7 @@ public class CustomerRepositoryTest {
 		logger.info(bookRepository.findAll().toString());
 	}
 	
+//	@Test
 //	public void testBook() {
 //		assertEquals("Tom", bookRepository.findOne(1l).getAuthor().getFirstName());
 //	}

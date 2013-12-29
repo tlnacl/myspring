@@ -8,7 +8,10 @@
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
 
 	<!-- DispatcherServlet Context: defines this servlet's request-processing infrastructure -->
-	
+	<resources mapping="/img/**" location="/img/" />
+    <resources mapping="/css/**" location="/css/" />
+    <resources mapping="/js/**" location="/js/" />
+    
 	<!-- Enables the Spring MVC @Controller programming model -->
 	<annotation-driven />
 

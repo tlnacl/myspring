@@ -25,6 +25,8 @@ public class InitData implements ApplicationListener<ContextRefreshedEvent> {
 
 		  bookRepository.save(new Book("Angular JS", new Author("Tom", "Tang")));
 		  
+		  System.out.println(bookRepository.findAll());
+		  
 			// save a couple of customers
 	        repository.save(new Customer("Tom", "Bauer"));
 	        repository.save(new Customer("Chloe", "O'Brian"));

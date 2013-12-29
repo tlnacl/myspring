@@ -86,6 +86,16 @@
 			<artifactId>jackson-annotations</artifactId>
 			<version>2.2.2</version>
 		</dependency>
+		<dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-validator</artifactId>
+            <version>4.3.0.Final</version>
+        </dependency>
+		<dependency>
+            <groupId>javax.validation</groupId>
+            <artifactId>validation-api</artifactId>
+            <version>1.0.0.GA</version>
+        </dependency>
 
 		<!-- Logging -->
 		<dependency>
@@ -130,6 +140,21 @@
 			<scope>runtime</scope>
 		</dependency>
 
+		<dependency>
+            <groupId>jp.sf.amateras.functions</groupId>
+            <artifactId>functions</artifactId>
+            <version>1.1.2</version>
+            <exclusions>
+                <exclusion>
+                    <artifactId>jsonic</artifactId>
+                    <groupId>net.arnx</groupId>
+                </exclusion>
+                <exclusion>
+                    <artifactId>log4j</artifactId>
+                    <groupId>log4j</groupId>
+                </exclusion>
+            </exclusions>
+        </dependency>
 		<!-- Test -->
 		<dependency>
 			<groupId>junit</groupId>
@@ -144,6 +169,28 @@
 			<scope>test</scope>
 		</dependency>
 	</dependencies>
+	<repositories>
+        <repository>
+            <id>amateras</id>
+            <name>Project Amateras Maven2 Repository</name>
+            <url>http://amateras.sourceforge.jp/mvn/</url>
+        </repository>
+        <repository>
+            <id>spring-milestone</id>
+            <url>http://repo.spring.io/libs-milestone</url>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </repository>
+        <repository>
+            <id>org.jboss.repository.releases</id>
+            <name>JBoss Maven Release Repository</name>
+            <url>https://repository.jboss.org/nexus/content/repositories/releases</url>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </repository>
+    </repositories>
 	<build>
 		<plugins>
 			<plugin>
