@@ -10,8 +10,7 @@
         </spring:hasBindErrors>
         <form:form method="post" action="." modelAttribute="book"
             cssClass="form-horizontal">
-            <fieldset>
-                <legend>Book</legend>
+            
                 <div class="control-group">
                     <label class="control-label" for="title">title</label>
                     <div class="controls">
@@ -22,23 +21,36 @@
                             element="span" />
                     </div>
                 </div>
+                <fieldset>
+                <legend>Author</legend>
                 <div class="control-group">
-                    <label class="control-label" for="author">author</label>
+                    <label class="control-label" for="author.firstName">First Name</label>
                     <div class="controls">
-                        <form:input path="author" cssClass="span3"
+                        <form:input path="author.firstName" cssClass="span3"
                             cssErrorClass="error" />
-                        <form:errors path="author"
+                        <form:errors path="author.firstName"
                             cssClass="error help-inline inline"
                             element="span" />
                     </div>
                 </div>
-                <form:hidden path="id" />
+                
+                <div class="control-group">
+                    <label class="control-label" for="author.lastName">Last Name</label>
+                    <div class="controls">
+                        <form:input path="author.lastName" cssClass="span3"
+                            cssErrorClass="error" />
+                        <form:errors path="author.lastName"
+                            cssClass="error help-inline inline"
+                            element="span" />
+                    </div>
+                </div>
+            </fieldset>
+            <form:hidden path="id" />
                 <div class="form-actions">
                     <input type="submit" class="btn btn-primary"
                         value="Submit">&nbsp;
                     <button type="reset" class="btn">Cancel</button>
                 </div>
-            </fieldset>
         </form:form>
         <hr>
         <a href='${pageContext.request.contextPath}/book/list' class="btn">list</a>

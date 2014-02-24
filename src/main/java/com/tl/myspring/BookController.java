@@ -44,6 +44,7 @@ public class BookController {
 	@RequestMapping(value = "/form", method = RequestMethod.GET)
     public @ModelAttribute
     Book create(Model model) {
+		LOGGER.info("create book???");
 		Book book = new Book();
 		return book;
 	}
@@ -51,7 +52,7 @@ public class BookController {
 	 @RequestMapping(value = "/form", method = RequestMethod.POST)
 	    public String createOnSubmit(@Valid Book book,
 	            BindingResult bindingResult, Model model) {
-	        LOGGER.debug("create book={}", book);
+	        LOGGER.info("create book={}", book);
 	        if (bindingResult.hasErrors()) {
 	            LOGGER.warn("validation error={}", bindingResult.getModel());
 	            model.addAllAttributes(bindingResult.getModel());
