@@ -254,7 +254,7 @@
 				        <artifactId>maven-war-plugin</artifactId>
 				        <configuration>
 				            <warName>myspring</warName>
-				            <outputDirectory>/var/lib/tomcat7/webapps</outputDirectory>
+				            <outputDirectory>/home/ec2-user/download/apache-tomcat-7.0.52/webapps</outputDirectory>
 				        </configuration>
 				    </plugin>
 			</plugins>
