@@ -28,7 +28,7 @@ public class BooksRestController {
   }
 
   @RequestMapping(value = "/{id}", method = RequestMethod.GET)
-  public @ResponseBody Book find(@PathVariable("id") long id) {
+  public @ResponseBody Book find(@PathVariable("id") Integer id) {
     Book book = this.bookRepository.findOne(id);
     if (book == null) {
       throw new BookNotFoundException(id);
@@ -47,7 +47,7 @@ public class BooksRestController {
 
   @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
   @ResponseStatus(HttpStatus.NO_CONTENT)
-  public void delete(@PathVariable("id") long id) {
+  public void delete(@PathVariable("id") Integer id) {
     this.bookRepository.delete(id);
   }
 
@@ -66,7 +66,7 @@ public class BooksRestController {
 
   @ResponseStatus(HttpStatus.NOT_FOUND)
   public class BookNotFoundException extends RuntimeException {
-    public BookNotFoundException(long id) {
+    public BookNotFoundException(Integer id) {
       super("Book '" + id + "' not found.");
     }
   }

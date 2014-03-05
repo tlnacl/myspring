@@ -20,6 +20,10 @@ public class Player extends BaseEntity{
     @NotEmpty
     @Digits(fraction = 0, integer = 10)
     private String telephone;
+    
+    private int playRound;
+    
+    private int winRound;
 
 	public String getFirstName() {
 		return firstName;
@@ -43,6 +47,22 @@ public class Player extends BaseEntity{
 
 	public void setTelephone(String telephone) {
 		this.telephone = telephone;
+	}
+
+	public int getPlayRound() {
+		return playRound;
+	}
+
+	public void setPlayRound(int playRound) {
+		this.playRound = playRound;
+	}
+
+	public int getWinRound() {
+		return winRound;
+	}
+
+	public void setWinRound(int winRound) {
+		this.winRound = winRound;
 	}
     
     
