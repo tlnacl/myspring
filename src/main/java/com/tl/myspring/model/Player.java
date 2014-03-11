@@ -18,7 +18,7 @@ public class Player extends BaseEntity{
     
     @Column(name = "telephone")
     @NotEmpty
-    @Digits(fraction = 0, integer = 10)
+    @Digits(fraction = 0, integer = 20)
     private String telephone;
     
     private int playRound;

@@ -12,6 +12,8 @@ import com.tl.myspring.model.Book;
 import com.tl.myspring.model.BookRepository;
 import com.tl.myspring.model.Customer;
 import com.tl.myspring.model.CustomerRepository;
+import com.tl.myspring.model.Player;
+import com.tl.myspring.model.PlayerRepository;
 
 @Component
 public class InitData implements ApplicationListener<ContextRefreshedEvent> {
@@ -19,6 +21,8 @@ public class InitData implements ApplicationListener<ContextRefreshedEvent> {
 	CustomerRepository repository;
 	@Autowired
 	BookRepository bookRepository;
+	@Autowired
+	PlayerRepository playerRepository;
 
 	  @Override
 	  public void onApplicationEvent(final ContextRefreshedEvent event) {
@@ -57,6 +61,14 @@ public class InitData implements ApplicationListener<ContextRefreshedEvent> {
 	        for (Customer bauer : bauers) {
 	            System.out.println(bauer);
 	        }
+	        
+	        for (int i = 1; i <= 20; i++) {
+				Player player = new Player();
+				player.setFirstName("Tom" + i);
+				player.setLastName("Tang");
+				player.setTelephone("13888888888");
+				playerRepository.save(player);
+			}
 		
 	  }	
 }
