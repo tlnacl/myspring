@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -21,6 +22,7 @@ import com.tl.myspring.model.Book;
 import com.tl.myspring.model.Player;
 import com.tl.myspring.model.PlayerRepository;
 
+@Controller
 @RequestMapping("/players")
 public class PlayerRestController {
 
@@ -33,7 +35,7 @@ public class PlayerRestController {
 	  }
 	  
 	  @RequestMapping(value = "/{id}", method = RequestMethod.GET)
-	  public @ResponseBody Player find(@PathVariable("id") long id) {
+	  public @ResponseBody Player find(@PathVariable("id") int id) {
 	    Player player = this.playerRepository.findOne(id);
 	    if (player == null) {
 	      throw new PlayerNotFoundException(id);
@@ -52,7 +54,7 @@ public class PlayerRestController {
 
 	  @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
 	  @ResponseStatus(HttpStatus.NO_CONTENT)
-	  public void delete(@PathVariable("id") long id) {
+	  public void delete(@PathVariable("id") int id) {
 	    this.playerRepository.delete(id);
 	  }
 
@@ -71,7 +73,7 @@ public class PlayerRestController {
 
 	  @ResponseStatus(HttpStatus.NOT_FOUND)
 	  public class PlayerNotFoundException extends RuntimeException {
-	    public PlayerNotFoundException(long id) {
+	    public PlayerNotFoundException(int id) {
 	      super("Player '" + id + "' not found.");
 	    }
 	  }
