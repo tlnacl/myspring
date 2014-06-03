@@ -67,6 +67,7 @@ public class InitData implements ApplicationListener<ContextRefreshedEvent> {
 				player.setFirstName("Tom" + i);
 				player.setLastName("Tang");
 				player.setTelephone("13888888888");
+                player.setPassword(Util.doMD5("123456"));
 				playerRepository.save(player);
 			}
 		

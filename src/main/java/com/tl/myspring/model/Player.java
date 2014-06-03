@@ -5,9 +5,15 @@ import javax.persistence.Entity;
 import javax.validation.constraints.Digits;
 
 import org.hibernate.validator.constraints.NotEmpty;
+import sun.security.util.Password;
 
 @Entity
 public class Player extends BaseEntity{
+    //email
+    private String playerId;
+
+    private String password;
+
 	@Column(name = "first_name")
     @NotEmpty
     protected String firstName;
@@ -24,6 +30,23 @@ public class Player extends BaseEntity{
     private int playRound;
     
     private int winRound;
+
+    public String getPlayerId() {
+        return playerId;
+    }
+
+    public void setPlayerId(String playerId) {
+        this.playerId = playerId;
+    }
+
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
 
 	public String getFirstName() {
 		return firstName;

@@ -3,6 +3,8 @@ package com.tl.myspring;
 import java.net.URI;
 import java.util.List;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpEntity;
@@ -25,6 +27,8 @@ import com.tl.myspring.model.PlayerRepository;
 @Controller
 @RequestMapping("/players")
 public class PlayerRestController {
+
+    private static final Logger logger = LoggerFactory.getLogger(PlayerRestController.class);
 
 	@Autowired
 	PlayerRepository playerRepository;
@@ -51,6 +55,14 @@ public class PlayerRestController {
 	    headers.setLocation(childLocation(parentUri, player.getId()));
 	    return new HttpEntity<Object>(headers);
 	  }
+
+    @ResponseBody
+    @RequestMapping(value="/call", method=RequestMethod.POST)
+    public String simplePost() {
+        // Strings aren't auto-converted to JSON
+        logger.info("You called simple post");
+        return "You called simplePost";
+    }
 
 	  @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
 	  @ResponseStatus(HttpStatus.NO_CONTENT)
