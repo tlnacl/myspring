@@ -10,6 +10,7 @@ import sun.security.util.Password;
 @Entity
 public class Player extends BaseEntity{
     //email
+
     private String playerId;
 
     private String password;
